@@ -1,0 +1,34 @@
+{
+  "name": "@ntlab/identity-fingerprint",
+  "version": "1.0.0",
+  "description": "Fingerprint identity acquisition and identification",
+  "main": "index.js",
+  "scripts": {
+    "build:dplib": "cd node_modules/@ntlab/dplib && node-gyp rebuild",
+    "build:dplib:win32": "cd node_modules/@ntlab/dplib && node-gyp rebuild --arch=ia32",
+    "build:dplib:win64": "cd node_modules/@ntlab/dplib && node-gyp rebuild --arch=x64"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tohenk/node-identity-fingerprint.git"
+  },
+  "keywords": [
+    "fingerprint",
+    "identify",
+    "acquisition",
+    "identification"
+  ],
+  "author": "Toha <tohenk@yahoo.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tohenk/node-identity-fingerprint/issues"
+  },
+  "homepage": "https://github.com/tohenk/node-identity-fingerprint#readme",
+  "dependencies": {
+    "@ntlab/dplib": "^1.0.5",
+    "@ntlab/identity": "^1.0.0",
+    "@ntlab/work": "^1.1.2",
+    "debug": "^4.3.4",
+    "jszip": "^3.10.1"
+  }
+}
