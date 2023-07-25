@@ -211,7 +211,7 @@ class FingerprintId extends Identity {
         }
     }
 
-    normalizeTemplate(data) {
+    normalize(data) {
         if (typeof data === 'string') {
             const buff = new Uint8Array(data.length);
             for (let i = 0; i < data.length; i++) {
