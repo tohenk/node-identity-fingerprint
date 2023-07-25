@@ -226,7 +226,14 @@ class FingerprintId extends Identity {
     }
 
     fingerIdentify(feature, workid) {
-        return this.getIdentifier().identify(workid, feature);
+        return this.getIdentifier().identify(this.fixWorkId(workid), feature);
+    }
+
+    fixWorkId(workid) {
+        if (!workid) {
+            workid = this.genId();
+        }
+        return workid;
     }
 
     onreset() {
