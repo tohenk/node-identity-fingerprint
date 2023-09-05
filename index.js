@@ -43,16 +43,23 @@ class FingerprintId extends Identity {
             worker: path.join(__dirname, 'worker'),
             maxWorks: 160,
         }
-        this.dp = require('@ntlab/dplib');
-        if (this.dp.init(this.options.dpInitOptions || {})) {
-            this.getIdentifier();
-            this.featuresLen = this.dp.getFeaturesLen();
-            this.ready = true;
+        try {
+            this.dp = require('@ntlab/dplib');
+            if (this.dp.init(this.options.dpInitOptions || {})) {
+                this.getIdentifier();
+                this.featuresLen = this.dp.getFeaturesLen();
+                this.ready = true;
+            }
+        }
+        catch (err) {
+            console.error(err);
         }
     }
 
     finalize() {
-        this.dp.exit();
+        if (this.dp) {
+            this.dp.exit();
+        }
     }
 
     getCommands() {
