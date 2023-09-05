@@ -52,7 +52,11 @@ class FingerprintId extends Identity {
             }
         }
         catch (err) {
-            console.error(err);
+            if (err.code === 'ERR_DLOPEN_FAILED') {
+                console.error('Fingerprint identity is unavailable, DigitalPersona U.are.U SDK not installed!');
+            } else {
+                console.error(err);
+            }
         }
     }
 
