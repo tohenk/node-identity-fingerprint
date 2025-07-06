@@ -1,7 +1,7 @@
 /**
  * The MIT License (MIT)
  *
- * Copyright (c) 2023 Toha <tohenk@yahoo.com>
+ * Copyright (c) 2023-2025 Toha <tohenk@yahoo.com>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
  * this software and associated documentation files (the "Software"), to deal in
@@ -84,12 +84,12 @@ function verify(work, start, end) {
     });
 }
 
-function log() {
-    debug(...Array.from(arguments));
+function log(...args) {
+    debug(...args);
 }
 
-function error() {
-    debug(...Array.from(arguments));
+function error(...args) {
+    debug(...args);
 }
 
 Worker.on('message', (data) => {
