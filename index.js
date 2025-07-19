@@ -97,8 +97,8 @@ class FingerprintId extends Identity {
                 },
             },
             [Identity.MODE_VERIFIER]: {
-                'identify': data => {
-                    return this.fingerIdentify(data.feature, data.workid);
+                'identify': async (data) => {
+                    return await this.fingerIdentify(data.feature, data.workid);
                 },
                 'count-template': data => {
                     return {count: this.getIdentifier().count()};
@@ -236,8 +236,8 @@ class FingerprintId extends Identity {
         return data;
     }
 
-    fingerIdentify(feature, workid) {
-        return this.getIdentifier().identify(this.fixWorkId(workid), feature);
+    async fingerIdentify(feature, workid) {
+        return await this.getIdentifier().identify(this.fixWorkId(workid), feature);
     }
 
     fixWorkId(workid) {
